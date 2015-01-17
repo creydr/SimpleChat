@@ -12,6 +12,7 @@ Chat.prototype.sendMessage = function(room, text) {
 }
 
 Chat.prototype.changeRoom = function(room) {
+	console.log('in changeRoom')
 	this.socket.emit('join', {newRoom: room});
 }
 
@@ -77,7 +78,7 @@ $(document).ready(function() {
 			}
 		}
 		
-		$('#room-list').click(function() {
+		$('#room-list div').click(function() {
 			chatApp.processCommand('/join ' + $(this).text());
 			$('#send-message').focus();
 		});
